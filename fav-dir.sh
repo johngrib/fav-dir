@@ -3,10 +3,10 @@ function fav() {
 
         FAV_TMP_FILE="/tmp/fav-dir-tempfile"
 
-        fav_create_list
-        fav_create_vim_session_dir_list
-        fav_create_separate_line
-        fav_create_favorite_list
+        _fav_create_list
+        _fav_create_vim_session_dir_list
+        _fav_create_separate_line
+        _fav_create_favorite_list
 
         FAV_TARGET_PATH=$(cat $FAV_TMP_FILE | grep -v '\-\-\-' | fzf )
         FAV_TARGET_PATH=$(echo $FAV_TARGET_PATH | sed "s/\[.*\] //" | sed "s,^~,$HOME,")
@@ -24,17 +24,17 @@ function fav() {
 
     elif [ "$1" = "list" ]; then
 
-        fav_create_list
-        fav_create_vim_session_dir_list
-        fav_create_separate_line
-        fav_create_favorite_list
+        _fav_create_list
+        _fav_create_vim_session_dir_list
+        _fav_create_separate_line
+        _fav_create_favorite_list
         cat $FAV_TMP_FILE
         echo '' > $FAV_TMP_FILE
 
     elif [ "$1" = "rm" ]; then
 
-        fav_create_list
-        fav_create_favorite_list
+        _fav_create_list
+        _fav_create_favorite_list
 
         FAV_TARGET_PATH=$(cat $FAV_TMP_FILE | grep -v '\-\-\-' | fzf )
         FAV_TARGET_PATH=$(echo $FAV_TARGET_PATH | sed "s/\[.*\] //" | sed "s,^~,$HOME,")
@@ -49,18 +49,18 @@ function fav() {
     fi
 }
 
-function fav_create_list() {
+function _fav_create_list() {
     echo '' > $FAV_TMP_FILE
 }
 
-function fav_create_vim_session_dir_list() {
+function _fav_create_vim_session_dir_list() {
     grep -e 'cd\s' ~/.vim/session/* | sed "s/^.*:cd /[VimSession] /" | sort | uniq >> $FAV_TMP_FILE 2>/dev/null
 }
 
-function fav_create_separate_line() {
+function _fav_create_separate_line() {
     echo '------------' >> $FAV_TMP_FILE
 }
 
-function fav_create_favorite_list() {
+function _fav_create_favorite_list() {
     cat ~/.fav-dir | sed -e "s/^/[ Favorite ] /" | sort | uniq >> $FAV_TMP_FILE 2>/dev/null
 }

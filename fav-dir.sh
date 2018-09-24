@@ -38,7 +38,7 @@ function fav_create_list() {
 }
 
 function fav_create_vim_session_dir_list() {
-    grep -e 'cd\s' ~/.vim/session/* | uniq | sed "s/^.*:cd /[VimSession] /" >> $FAV_TMP_FILE 2>/dev/null
+    grep -e 'cd\s' ~/.vim/session/* | uniq | sed "s/^.*:cd /[VimSession] /" | sort >> $FAV_TMP_FILE 2>/dev/null
 }
 
 function fav_create_separate_line() {
@@ -46,5 +46,5 @@ function fav_create_separate_line() {
 }
 
 function fav_create_favorite_list() {
-    cat ~/.fav-dir | uniq | sed -e "s/^/[ Favorite ] /" >> $FAV_TMP_FILE 2>/dev/null
+    cat ~/.fav-dir | uniq | sed -e "s/^/[ Favorite ] /" >> $FAV_TMP_FILE | sort 2>/dev/null
 }

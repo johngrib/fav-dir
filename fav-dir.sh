@@ -11,7 +11,7 @@ function fav() {
 
     elif [ "$1" = "add" ]; then
 
-        echo "add!!! $(pwd)"
+        echo "added : $(pwd)"
         echo "cd $(pwd)" >> ~/.fav-dir
 
     fi

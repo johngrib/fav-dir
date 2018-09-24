@@ -1,7 +1,12 @@
 function fav() {
     if [ "$1" = "" ]; then
 
-        FAV_TARGET_PATH=$(grep -e 'cd\s' ~/.vim/session/* ~/.fav-dir 2>/dev/null | sed "s/^.*:cd //" | sed "s,~,$HOME," | uniq | fzf )
+        FAV_TMP_FILE="/tmp/fav-dir-tempfile"
+
+        fav_create_list
+
+        FAV_TARGET_PATH=$(cat $FAV_TMP_FILE | grep -v '\-\-\-' | fzf )
+        FAV_TARGET_PATH=$(echo $FAV_TARGET_PATH | sed "s/\[.*\] //" | sed "s,^~,$HOME,")
 
         if [ "$FAV_TARGET_PATH" != "" ]; then
             cd $FAV_TARGET_PATH
@@ -16,17 +21,16 @@ function fav() {
 
     elif [ "$1" = "list" ]; then
 
-        FAV_TMP_FILE="/tmp/fav-dir-tempfile"
-        echo '' > $FAV_TMP_FILE
-
-        grep -e 'cd\s' ~/.vim/session/* | sed "s/^.*:cd /[VimSession] /" > $FAV_TMP_FILE 2>/dev/null
-        echo '------------' >> $FAV_TMP_FILE
-
-        cat ~/.fav-dir | sed -e "s/^/[ Favorite ] /" >> $FAV_TMP_FILE 2>/dev/null
-
+        fav_create_list
         cat $FAV_TMP_FILE
-
         echo '' > $FAV_TMP_FILE
     fi
 }
 
+function fav_create_list() {
+    echo '' > $FAV_TMP_FILE
+
+    grep -e 'cd\s' ~/.vim/session/* | sed "s/^.*:cd /[VimSession] /" > $FAV_TMP_FILE 2>/dev/null
+    echo '------------' >> $FAV_TMP_FILE
+    cat ~/.fav-dir | sed -e "s/^/[ Favorite ] /" >> $FAV_TMP_FILE 2>/dev/null
+}

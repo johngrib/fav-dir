@@ -4,9 +4,10 @@
 
 ## How to use
 
+* `fav` : Jumps to the selected path.
 * `fav add` : Add the current path to your favorites list.
 * `fav rm` : Removes the selected path from your favorites list.
-* `fav list` : View your favorites list.
+* `fav list` : View your favorites list and Vim session directory list.
 
 ## Install
 

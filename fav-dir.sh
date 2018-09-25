@@ -54,7 +54,9 @@ function _fav_create_list() {
 }
 
 function _fav_create_vim_session_dir_list() {
-    grep -e 'cd\s' ~/.vim/session/* | sed "s/^.*:cd /[VimSession] /" | sort | uniq >> $FAV_TMP_FILE 2>/dev/null
+    if [ -d ~/.vim/session/ ]; then
+        grep -e 'cd\s' ~/.vim/session/* | sed "s/^.*:cd /[VimSession] /" | sort | uniq >> $FAV_TMP_FILE 2>/dev/null
+    fi
 }
 
 function _fav_create_separate_line() {

@@ -1,5 +1,7 @@
 # fav-dir
 
+English | [한국어](README-ko.md)
+
 * `fav` is a shell script that helps you save and jump to your favorite directories and vim session directories.
 
 ## How to use

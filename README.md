@@ -1,5 +1,7 @@
 # fav-dir
 
+[![asciicast](https://asciinema.org/a/kk1QBvFFLT8K7Kev5N3EZYVlq.png)](https://asciinema.org/a/kk1QBvFFLT8K7Kev5N3EZYVlq)
+
 English | [한국어](README-ko.md)
 
 * `fav` is a shell script that helps you save and jump to your favorite directories and vim session directories.

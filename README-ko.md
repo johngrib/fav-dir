@@ -1,5 +1,7 @@
 # fav-dir
 
+[![asciicast](https://asciinema.org/a/kk1QBvFFLT8K7Kev5N3EZYVlq.png)](https://asciinema.org/a/kk1QBvFFLT8K7Kev5N3EZYVlq)
+
 [English](README.md) | 한국어
 
 * `fav`는 즐겨 찾는 디렉토리 경로를 저장하고, 쉽게 이동하도록 돕는 셸 스크립트입니다(vim session 경로도 포함).

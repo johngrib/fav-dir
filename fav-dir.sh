@@ -1,7 +1,8 @@
 function fav() {
-    if [ "$1" = "" ]; then
 
-        FAV_TMP_FILE="/tmp/fav-dir-tempfile"
+    FAV_TMP_FILE="/tmp/fav-dir-tempfile"
+
+    if [ "$1" = "" ]; then
 
         _fav_create_list
         _fav_create_vim_session_dir_list

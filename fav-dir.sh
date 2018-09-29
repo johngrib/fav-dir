@@ -18,12 +18,12 @@ function fav() {
 
         return
 
-    elif [ "$1" = "add" ]; then
+    elif [ "$1" = "add" -o "$1" = "a" ]; then
 
         echo "added : $(pwd)"
         echo "$(pwd)" >> ~/.fav-dir
 
-    elif [ "$1" = "list" ]; then
+    elif [ "$1" = "list" -o "$1" = "l" ]; then
 
         _fav_create_list
         _fav_create_vim_session_dir_list
@@ -32,7 +32,7 @@ function fav() {
         cat $FAV_TMP_FILE
         echo '' > $FAV_TMP_FILE
 
-    elif [ "$1" = "rm" ]; then
+    elif [ "$1" = "rm" -o "$1" = "r" ]; then
 
         _fav_create_list
         _fav_create_favorite_list

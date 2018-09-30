@@ -79,5 +79,5 @@ function _fav_create_separate_line() {
 }
 
 function _fav_create_favorite_list() {
-    cat ~/.fav-dir | sed -e "s/^/[ Favorite ] /" | sort | uniq >> $FAV_TMP_FILE 2>/dev/null
+    grep -v '^\s*$' ~/.fav-dir | sed -e "s/^/[ Favorite ] /" | sort | uniq >> $FAV_TMP_FILE 2>/dev/null
 }

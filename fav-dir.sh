@@ -47,6 +47,20 @@ function fav() {
             echo "removed : $FAV_TARGET_PATH"
             return
         fi
+    elif [ "$1" = "clean" -o "$1" = "c" ]; then
+
+        FAV_TMP_FILE_REPLACE="/tmp/fav-dir-tempfile-replace"
+        echo '' > $FAV_TMP_FILE_REPLACE
+
+        for FAV_DIR in $(cat ~/.fav-dir) ; do
+            if [ -d $FAV_DIR ]; then
+                echo "$FAV_DIR" >> $FAV_TMP_FILE_REPLACE
+            else
+                echo "Removed invalid path: $FAV_DIR"
+            fi
+        done
+
+        \mv $FAV_TMP_FILE_REPLACE ~/.fav-dir
     fi
 }
 

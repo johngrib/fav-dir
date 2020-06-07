@@ -1,6 +1,6 @@
 # fav-dir
 
-[![asciicast](https://asciinema.org/a/kk1QBvFFLT8K7Kev5N3EZYVlq.png)](https://asciinema.org/a/kk1QBvFFLT8K7Kev5N3EZYVlq)
+![image](https://user-images.githubusercontent.com/1855714/83960676-8d8c6200-a8c6-11ea-9ce0-cddcc84b5b20.gif)
 
 [English](README.md) | 한국어
 

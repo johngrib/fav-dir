@@ -14,11 +14,7 @@ English | [한국어](README-ko.md)
 
 ## Install
 
-* `fav` is dependent on [fzf](https://github.com/junegunn/fzf ).
-
-1. [install fzf](https://github.com/junegunn/fzf#installation )
-2. `git clone https://github.com/johngrib/fav-dir.git`
-3. `cd fav-dir`
-4. `./install.sh`
-5. Add `[ -f ~/.local/bin/fav-dir.sh ] && source ~/.local/bin/fav-dir.sh` to your `.bashrc` or `.bash_profile`
-
+```sh
+brew tap johngrib/homebrew-johngrib
+brew install fav
+```

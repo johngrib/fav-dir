@@ -16,11 +16,8 @@
 
 ## 설치 방법
 
-* `fav`는 [fzf](https://github.com/junegunn/fzf )에 의존성이 있습니다.
-
-1. [fzf 설치](https://github.com/junegunn/fzf#installation )
-2. `git clone https://github.com/johngrib/fav-dir.git`
-3. `cd fav-dir`
-4. `./install.sh`
-5. `.bashrc`나 `.bash_profile`에 `[ -f ~/.local/bin/fav-dir.sh ] && source ~/.local/bin/fav-dir.sh`를 추가하세요.
+```sh
+brew tap johngrib/homebrew-johngrib
+brew install fav
+```
 

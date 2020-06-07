@@ -18,3 +18,9 @@ English | [한국어](README-ko.md)
 brew tap johngrib/homebrew-johngrib
 brew install fav
 ```
+
+And add this line to `.bashrc`.
+
+```sh
+source $(which fav.sh)
+```

@@ -21,3 +21,8 @@ brew tap johngrib/homebrew-johngrib
 brew install fav
 ```
 
+이후 `.bashrc`에 다음 라인을 추가합니다.
+
+```sh
+source $(which fav.sh)
+```

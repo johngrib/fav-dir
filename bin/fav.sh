@@ -62,8 +62,15 @@ Code repository: https://github.com/johngrib/fav-dir
 
     function _fav_remove_directory() {
         echo -n '' > $INDEX.temp
+
+        directories=$( __fav_get_list | fzf -m )
+
+        if [ -z "$directories" ]; then
+            return
+        fi
+
         echo $(
-            for directory in `__fav_get_list | fzf -m` ; do
+            for directory in $directories; do
                 grep -v "$directory" $INDEX >> $INDEX.temp
                 echo "Removed => $directory"
             done

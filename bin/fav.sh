@@ -47,7 +47,7 @@ Code repository: https://github.com/johngrib/fav-dir
             *)
                 local TARGET_PATH=$(__fav_get_target_path)
                 if [ ! "$TARGET_PATH" = "" ]; then
-                    cd $TARGET_PATH
+                    cd "$TARGET_PATH"
                 fi
                 ;;
         esac
